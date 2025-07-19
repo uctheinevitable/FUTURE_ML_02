@@ -357,171 +357,197 @@ def show_best_model_summary(model_results):
     with col3:
         st.metric("Recall", f"{best_metrics['recall']:.3f}")
         st.metric("F1-Score", f"{best_metrics['f1_score']:.3f}")
-    
-    # Model recommendations
-    st.markdown("### Model Recommendations")
-    
-    if 'xgboost' in best_model_name.lower():
-        st.info("""
-        **XGBoost** is performing best for your churn prediction:
-        - Excellent handling of complex patterns
-        - Built-in feature importance
-        - Robust against overfitting
-        - Recommended for production deployment
-        """)
-    elif 'random' in best_model_name.lower():
-        st.info("""
-        **Random Forest** shows strong performance:
-        - Good balance of accuracy and interpretability
-        - Handles mixed data types well
-        - Provides feature importance insights
-        - Suitable for production use
-        """)
-    else:
-        st.info("""
-        **Logistic Regression** provides baseline performance:
-        - Highly interpretable results
-        - Fast training and prediction
-        - Good for understanding linear relationships
-        - Consider ensemble methods for improved accuracy
-        """)
+
 
 def show_executive_dashboard(df, data_summary):
-    """Executive-level dashboard with key business metrics"""
+    """Executive-level dashboard with enhanced professional styling"""
     
-    st.markdown("## Executive Summary")
+    # Modern header with better spacing
+    st.markdown("# 📊 Executive Summary")
+    st.markdown("### Customer Retention Intelligence Dashboard")
+    st.markdown("<br>", unsafe_allow_html=True)
     
-    # Key Performance Indicators
+    # Enhanced Key Performance Indicators
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
         st.markdown(f"""
-        <div class="metric-container">
-            <h3>Customer Base</h3>
-            <h2>{data_summary['total_customers']:,}</h2>
-            <p>Total Active Customers</p>
+        <div style="
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1rem;
+        ">
+            <h4 style="margin: 0; font-size: 0.9rem; opacity: 0.9;">👥 Customer Base</h4>
+            <h1 style="margin: 0.5rem 0; font-size: 2.2rem; font-weight: 700;">{data_summary['total_customers']:,}</h1>
+            <p style="margin: 0; font-size: 0.85rem; opacity: 0.8;">Total Active Customers</p>
         </div>
         """, unsafe_allow_html=True)
     
     with col2:
         churn_count = data_summary['churned_customers']
         st.markdown(f"""
-        <div class="metric-container">
-            <h3>Customer Churn</h3>
-            <h2>{churn_count:,}</h2>
-            <p>Customers Lost</p>
+        <div style="
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1rem;
+        ">
+            <h4 style="margin: 0; font-size: 0.9rem; opacity: 0.9;">📉 Customer Churn</h4>
+            <h1 style="margin: 0.5rem 0; font-size: 2.2rem; font-weight: 700;">{churn_count:,}</h1>
+            <p style="margin: 0; font-size: 0.85rem; opacity: 0.8;">Customers Lost</p>
         </div>
         """, unsafe_allow_html=True)
     
     with col3:
         churn_rate = data_summary['churn_rate']
-        color = "#ef4444" if churn_rate > 0.25 else "#f59e0b" if churn_rate > 0.15 else "#10b981"
+        
+        # Dynamic color and icon based on churn rate
+        if churn_rate > 0.25:
+            bg_color = "linear-gradient(135deg, #ef4444 0%, #dc2626 100%)"
+            icon = "🚨"
+            shadow_color = "rgba(239, 68, 68, 0.3)"
+        elif churn_rate > 0.15:
+            bg_color = "linear-gradient(135deg, #f59e0b 0%, #d97706 100%)"
+            icon = "⚠️"
+            shadow_color = "rgba(245, 158, 11, 0.3)"
+        else:
+            bg_color = "linear-gradient(135deg, #10b981 0%, #059669 100%)"
+            icon = "✅"
+            shadow_color = "rgba(16, 185, 129, 0.3)"
+        
         st.markdown(f"""
-        <div class="metric-container" style="background: linear-gradient(135deg, {color} 0%, {color}dd 100%);">
-            <h3>Churn Rate</h3>
-            <h2>{churn_rate:.1%}</h2>
-            <p>Monthly Attrition</p>
+        <div style="
+            background: {bg_color};
+            padding: 1.5rem;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 15px {shadow_color};
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1rem;
+        ">
+            <h4 style="margin: 0; font-size: 0.9rem; opacity: 0.9;">{icon} Churn Rate</h4>
+            <h1 style="margin: 0.5rem 0; font-size: 2.2rem; font-weight: 700;">{churn_rate:.1%}</h1>
+            <p style="margin: 0; font-size: 0.85rem; opacity: 0.8;">Monthly Attrition</p>
         </div>
         """, unsafe_allow_html=True)
     
     with col4:
         avg_revenue = data_summary['avg_monthly_charges']
         st.markdown(f"""
-        <div class="metric-container">
-            <h3>Avg Revenue</h3>
-            <h2>${avg_revenue:.0f}</h2>
-            <p>Per Customer/Month</p>
+        <div style="
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1rem;
+        ">
+            <h4 style="margin: 0; font-size: 0.9rem; opacity: 0.9;">💰 ARPU</h4>
+            <h1 style="margin: 0.5rem 0; font-size: 2.2rem; font-weight: 700;">${avg_revenue:.0f}</h1>
+            <p style="margin: 0; font-size: 0.85rem; opacity: 0.8;">Per Customer/Month</p>
         </div>
         """, unsafe_allow_html=True)
     
-    st.markdown("---")
+    # Enhanced divider
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.divider()
     
-    # Business Intelligence Charts
+    # Business Intelligence Charts with improved styling
+    st.markdown("## 📈 Business Intelligence")
     col1, col2 = st.columns(2)
     
     with col1:
-        st.markdown("### Customer Distribution Analysis")
+        st.markdown("#### 🔍 Customer Distribution Analysis")
         
-        # Professional pie chart
+        # Enhanced pie chart with modern colors
         fig, ax = plt.subplots(figsize=(8, 6))
         churn_counts = df['Churn'].value_counts()
-        colors = ['#10b981', '#ef4444']
+        modern_colors = ['#06b6d4', '#f43f5e']  # Cyan and rose
         
         wedges, texts, autotexts = ax.pie(
             churn_counts.values, 
             labels=['Retained', 'Churned'],
             autopct='%1.1f%%',
-            colors=colors,
+            colors=modern_colors,
             startangle=90,
-            explode=(0, 0.05)
+            explode=(0.02, 0.08),
+            wedgeprops={'edgecolor': 'white', 'linewidth': 3}
         )
         
-        # Professional styling
+        # Modern text styling
         for autotext in autotexts:
             autotext.set_color('white')
             autotext.set_fontweight('bold')
-            autotext.set_fontsize(12)
+            autotext.set_fontsize(13)
         
         for text in texts:
-            text.set_fontsize(11)
-            text.set_fontweight('500')
+            text.set_fontsize(12)
+            text.set_fontweight('600')
+            text.set_color('#1f2937')
         
-        ax.set_title('Customer Retention Overview', fontsize=14, fontweight='600', pad=20)
+        ax.set_title('Customer Retention Overview', 
+                    fontsize=16, fontweight='700', 
+                    color='#1f2937', pad=25)
+        
+        # Clean background
+        fig.patch.set_facecolor('white')
+        ax.set_facecolor('white')
+        
         st.pyplot(fig)
+        plt.close()
     
     with col2:
-        st.markdown("### Revenue Impact Analysis")
+        st.markdown("#### 💵 Revenue Impact Analysis")
         
-        # Professional box plot
+        # Enhanced box plot with modern styling
         fig, ax = plt.subplots(figsize=(8, 6))
         churned = df[df['Churn'] == 'Yes']['MonthlyCharges']
         retained = df[df['Churn'] == 'No']['MonthlyCharges']
         
         bp = ax.boxplot([retained, churned], 
                        labels=['Retained', 'Churned'],
-                       patch_artist=True)
+                       patch_artist=True,
+                       boxprops={'alpha': 0.8, 'linewidth': 2},
+                       medianprops={'color': 'white', 'linewidth': 3},
+                       whiskerprops={'linewidth': 2},
+                       capprops={'linewidth': 2})
         
-        # Color the boxes professionally
-        bp['boxes'][0].set_facecolor('#10b981')
-        bp['boxes'][1].set_facecolor('#ef4444')
+        # Modern color scheme
+        bp['boxes'][0].set_facecolor('#06b6d4')  # Cyan
+        bp['boxes'][1].set_facecolor('#f43f5e')  # Rose
         
-        for box in bp['boxes']:
-            box.set_alpha(0.7)
+        ax.set_title('Monthly Revenue Distribution', 
+                    fontsize=16, fontweight='700', 
+                    color='#1f2937', pad=25)
+        ax.set_ylabel('Monthly Charges ($)', fontsize=12, 
+                     color='#4b5563', fontweight='500')
         
-        ax.set_title('Monthly Revenue Distribution', fontsize=14, fontweight='600', pad=20)
-        ax.set_ylabel('Monthly Charges ($)', fontsize=11)
-        ax.grid(True, alpha=0.3)
+        # Enhanced grid and styling
+        ax.grid(True, alpha=0.2, linestyle='--')
+        ax.set_facecolor('#f9fafb')
+        fig.patch.set_facecolor('white')
+        
+        # Improved axis styling
+        ax.tick_params(colors='#6b7280')
+        for spine in ax.spines.values():
+            spine.set_color('#e5e7eb')
+        
         st.pyplot(fig)
+        plt.close()
     
-    # Business Insights
-    st.markdown("---")
-    st.markdown("### Key Business Insights")
-    
-    col1, col2, col3 = st.columns(3)
-    
-    with col1:
-        monthly_loss = df[df['Churn'] == 'Yes']['MonthlyCharges'].sum()
-        annual_loss = monthly_loss * 12
-        st.markdown(f"""
-        **💸 Revenue at Risk**
-        - Monthly Loss: ${monthly_loss:,.0f}
-        - Annual Impact: ${annual_loss:,.0f}
-        """)
-    
-    with col2:
-        avg_churned_value = df[df['Churn'] == 'Yes']['MonthlyCharges'].mean()
-        st.markdown(f"""
-        **📊 Customer Segments**
-        - Avg Churned Value: ${avg_churned_value:.0f}
-        - High-Risk Identification: Active
-        """)
-    
-    with col3:
-        st.markdown(f"""
-        **🎯 Retention Opportunity**
-        - Preventable Loss: ${annual_loss * 0.3:,.0f}
-        - ROI Potential: 5:1
-        """)
+ 
 
 def show_prediction_interface(encoders, scaler, feature_names, models):
     """Professional prediction interface"""
@@ -607,30 +633,14 @@ def display_professional_results(risk_score, monthly_charges, tenure):
     if risk_score > 0.65:
         risk_level = "HIGH"
         css_class = "high-risk"
-        recommendations = [
-            "🚨 Immediate retention intervention required",
-            "📞 Schedule executive-level customer outreach",
-            "💰 Authorize premium retention incentives",
-            "⏰ 24-48 hour response window critical"
-        ]
+
     elif risk_score > 0.35:
         risk_level = "MEDIUM"
         css_class = "medium-risk"
-        recommendations = [
-            "⚠️ Proactive retention campaign recommended",
-            "📧 Deploy targeted email engagement series",
-            "🎁 Consider service upgrade incentives",
-            "📊 Monitor account activity closely"
-        ]
+
     else:
         risk_level = "LOW"
         css_class = "low-risk"
-        recommendations = [
-            "✅ Customer retention outlook positive",
-            "💡 Focus on satisfaction maintenance",
-            "🎯 Consider upselling opportunities",
-            "📈 Include in loyalty program"
-        ]
     
     # Display results
     st.markdown(f"""
@@ -656,10 +666,6 @@ def display_professional_results(risk_score, monthly_charges, tenure):
         retention_cost = annual_value * 0.15
         st.metric("Est. Retention Cost", f"${retention_cost:,.0f}")
     
-    # Action recommendations
-    st.markdown("### 🎯 Recommended Actions")
-    for rec in recommendations:
-        st.markdown(f"- {rec}")
 
 def show_analytics_dashboard(df):
     """Professional analytics dashboard"""
