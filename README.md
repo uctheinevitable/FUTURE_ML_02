@@ -76,8 +76,8 @@ churn_prediction_system/
 1. **Clone the repository**
 
 ```bash
-git clone <repository-url>
-cd churn_prediction_system
+git clone https://github.com/uctheinevitable/FUTURE_ML_02.git
+cd UTURE_ML_02
 ```
 
 2. **Install dependencies**
