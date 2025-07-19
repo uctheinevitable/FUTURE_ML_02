@@ -744,7 +744,6 @@ def show_analytics_dashboard(df):
         ax.legend(fontsize=10)
         ax.tick_params(labelsize=10)
         plt.grid(axis='y', alpha=0.3)
-        
         plt.tight_layout()
         # FIXED: Use container width and close figure
         st.pyplot(fig, use_container_width=True)
