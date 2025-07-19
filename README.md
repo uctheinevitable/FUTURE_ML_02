@@ -1,5 +1,3 @@
-<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" class="logo" width="120"/>
-
 # Customer Churn Prediction System
 
 A comprehensive machine learning system to predict customer churn using advanced analytics and professional business intelligence dashboards.
@@ -118,28 +116,24 @@ streamlit run streamlit_app/app.py
 ## 📊 Dashboard Screenshots
 
 ### Executive Summary Dashboard
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/742c2a3f-50f7-483d-8406-461afea849d9" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f12f71e6-0564-4d8b-8ae9-99efd30a0068" />
 
-*Screenshot: Executive dashboard showing key performance indicators, customer distribution analysis, and revenue impact metrics*
-
-<!-- Paste your executive dashboard screenshot here -->
 
 ### Customer Churn Prediction Interface
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8815ad77-88d3-45cd-a106-5655ce062b8e" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2c61cb02-8c6c-4efc-82ca-59ac8b1aa92c" />
 
-*Screenshot: Professional prediction interface with customer input form and risk assessment results*
-
-<!-- Paste your prediction interface screenshot here -->
 
 ### Data Analytics Dashboard
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/cfaff0d6-c395-471b-abc3-59f1a018561e" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/58b824af-6d9b-4835-9dc5-c8915320ffe7" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b902c70d-45f0-432c-aad5-4e41087b286a" />
 
-*Screenshot: Comprehensive analytics showing contract analysis, payment method impact, and customer lifecycle patterns*
-
-<!-- Paste your analytics dashboard screenshot here -->
 
 ### Model Performance Comparison
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e74f9951-9126-45ef-9f9f-d3f2b261f030" />
 
-*Screenshot: Model performance metrics, ROC curves, and feature importance analysis*
-
-<!-- Paste your model performance screenshot here -->
 
 ## 🎯 Business Value
 
@@ -209,7 +203,6 @@ The system implements multiple algorithms for robust predictions:
 - **Contract Analysis**: Impact of different contract types on churn behavior
 - **Payment Method Intelligence**: Risk assessment by payment preferences
 - **Customer Lifecycle**: Tenure-based churn pattern analysis
-- **Revenue Segmentation**: Value-based customer risk profiling
 
 
 ### Model Performance Center
@@ -219,3 +212,10 @@ The system implements multiple algorithms for robust predictions:
 - **Feature Importance**: Understanding key churn drivers
 - **Model Recommendations**: Best practices for production deployment
 
+
+## 👤 Author
+
+**Developed by:**  
+- Ujjwal Chaurasia
+- [LinkedIn](www.linkedin.com/in/ujjwal-chaurasia)
+- [GitHub](https://github.com/uctheinevitable)
