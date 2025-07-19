@@ -781,8 +781,12 @@ def show_about_system():
     
     ---
     
-    **Developed for enterprise customer success teams**  
-    *Empowering data-driven retention strategies*
+    **Developed by:**
+
+    *Ujjwal Chaurasia*
+    [LinkedIn](www.linkedin.com/in/ujjwal-chaurasia)
+    [GitHub](https://github.com/uctheinevitable)
+
     """)
 
 if __name__ == "__main__":
